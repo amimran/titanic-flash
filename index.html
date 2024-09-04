@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Titanic</title>
+    <style>
+        html, body { height: 100%; margin: 0; padding: 0; overflow: hidden; }
+        #ruffle-player { width: 100%; height: 100%; }
+    </style>
+</head>
+<body>
+    <div id="ruffle-player"></div>
+
+    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+    <script>
+        window.RufflePlayer = window.RufflePlayer || {};
+        window.addEventListener("load", (event) => {
+            const ruffle = window.RufflePlayer.newest();
+            const player = ruffle.createPlayer();
+            const container = document.getElementById("ruffle-player");
+            container.appendChild(player);
+            player.load("https://dl.dropboxusercontent.com/scl/fi/97z9mgllwi2sc6dawvn5g/pano.swf?rlkey=g6m1gn47lplkhl83efsoabvaq");
+        });
+    </script>
+</body>
+</html>
