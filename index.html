@@ -19,13 +19,27 @@
             const player = ruffle.createPlayer();
             const container = document.getElementById("ruffle-player");
             container.appendChild(player);
+            
+            // Function to convert Dropbox shared link to direct link
+            function getDirectLink(sharedLink) {
+                return sharedLink.replace("www.dropbox.com", "dl.dropboxusercontent.com")
+                                 .replace("?dl=0", "")
+                                 .replace("?rlkey=", "?raw=1&rlkey=");
+            }
+
+            const baseUrl = getDirectLink("https://www.dropbox.com/scl/fo/b3lzl2p0me3vx39k2bnud/h?rlkey=mnsxffjuy45qhd9ucavkta19p&dl=0");
+            const swfUrl = getDirectLink("https://www.dropbox.com/scl/fi/97z9mgllwi2sc6dawvn5g/pano.swf?rlkey=g6m1gn47lplkhl83efsoabvaq&dl=0");
+
             player.load({
-                url: "https://www.dropbox.com/scl/fi/97z9mgllwi2sc6dawvn5g/pano.swf?rlkey=g6m1gn47lplkhl83efsoabvaq&dl=0",
-                config: {
-                    base: "https://dl.dropboxusercontent.com/scl/fo/b3lzl2p0me3vx39k2bnud/h/",
-                    allowScriptAccess: true
-                }
+                url: swfUrl,
+                parameters: {
+                    base: baseUrl
+                },
+                allowScriptAccess: true
             });
+            
+            console.log("Base URL:", baseUrl);
+            console.log("SWF URL:", swfUrl);
         });
     </script>
 </body>
