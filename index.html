@@ -19,7 +19,13 @@
             const player = ruffle.createPlayer();
             const container = document.getElementById("ruffle-player");
             container.appendChild(player);
-            player.load("https://dl.dropboxusercontent.com/scl/fi/97z9mgllwi2sc6dawvn5g/pano.swf?rlkey=g6m1gn47lplkhl83efsoabvaq");
+            player.load({
+                url: "https://dl.dropboxusercontent.com/scl/fi/97z9mgllwi2sc6dawvn5g/pano.swf?rlkey=g6m1gn47lplkhl83efsoabvaq",
+                config: {
+                    baseUrl: "https://dl.dropboxusercontent.com/scl/fi/97z9mgllwi2sc6dawvn5g/",
+                    allowScriptAccess: true
+                }
+            });
         });
     </script>
 </body>
